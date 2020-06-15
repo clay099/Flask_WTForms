@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Pet Details{% endblock %}
+
+{% block content %}
+
+<h1 class="display-3">Name: {{pet.name}}</h1>
+<p><strong>Species:</strong> {{pet.species}}</p>
+<img src="{{pet.photo_url}}" alt="No Photo Uploaded" class="img-thumbnail w-25" alt="Responsive image">
+<p><strong>Age:</strong> {{pet.age}}</p>
+{% if pet.notes %}
+<p><strong>Notes:</strong> {{pet.notes}}</p>
+{% endif %}
+<p><strong>Availability:</strong> {{pet.available}}</p>
+
+<form class="form-group" action="/{{pet.id}}/edit">
+    <a class="btn btn-outline-primary" href="/">Go back</a>
+    <button class="btn btn-success" type="submit">Edit</button>
+</form>
+{% endblock %}

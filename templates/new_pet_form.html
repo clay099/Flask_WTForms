@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Add new pet{% endblock %}
+
+{% block content %}
+<h1 class="display-1">Add Pet</h1>
+
+<form method="POST">
+    {% include "_form.html" %}
+    <br>
+    <a class="btn btn-outline-primary btn-lg" href="/">Go Back</a>
+    <button class="btn btn-success btn-lg">Submit</button>
+</form>
+
+{% endblock %}

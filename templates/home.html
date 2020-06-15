@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Pet Adoption Agency{% endblock %}
+
+{% block content %}
+
+<h1 class="display-1">Pets</h1>
+
+<div class="card-columns">
+    <h3>Pets Avaliable for Adoption</h3>
+    {% for pet in available_pets %}
+    <div class="card">
+        <div class="card-body">
+            <img src="{{ pet.photo_url}}" class="card-img-top" alt="Photo not uploaded">
+            <h5 class="card-title"><a href="/{{ pet.id }}">{{ pet.name }}</a>
+                {% if pet.available %}
+                <strong class="text-success"> is available!</strong>
+                {% endif %}
+            </h5>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<hr>
+<div class="card-columns">
+    <h3>Adopted pets</h3>
+    {% for pet in adopted_pets %}
+    <div class="card">
+        <div class="card-body">
+            <img src="{{ pet.photo_url}}" class="card-img-top" alt="Photo not uploaded">
+            <h5 class="card-title"><a href="/{{ pet.id }}">{{ pet.name }}</a>
+                {% if pet.available %}
+                <strong class="text-success"> is available!</strong>
+                {% endif %}
+            </h5>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<a href="/add" class="btn btn-lg btn-success">Add a pet</a>
+{% endblock %}
